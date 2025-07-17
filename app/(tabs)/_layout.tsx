@@ -1,26 +1,36 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import React from 'react'
+import { Tabs } from 'expo-router'
+import { TabBar } from '@/components/TabBar'
 
-export default function TabLayout() {
+const TabLayout = () => {
   return (
-    <Tabs
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size, focused }) => {
-          let iconName: keyof typeof Ionicons.glyphMap;
-          if (route.name === "home") iconName = focused ? "home" : "home-outline";
-          else if (route.name === 'settings') iconName = focused ? 'settings' : 'settings-outline';
-          else if (route.name === 'notifications') iconName = focused ? 'notifications' : 'notifications-outline';
-          else iconName = 'ellipse-outline';
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
-        headerShown: false,
-      })}
-    >
-      <Tabs.Screen name="home" options={{ title: "Trang chủ" }} />
-      <Tabs.Screen name="notifications" options={{ title: 'Thông báo' }} />
-      <Tabs.Screen name="settings" options={{ title: "Cài đặt" }} />
+    <Tabs tabBar={(props) => <TabBar {...props} /> } screenOptions={{ headerShown: false }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+        }}
+      />
+      <Tabs.Screen
+        name="discover"
+        options={{
+          title: "Discover",
+        }}
+      />
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: "Saved",
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+        }}
+      />
     </Tabs>
-  );
+  )
 }
+
+export default TabLayout

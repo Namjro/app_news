@@ -1,50 +1,188 @@
-# Welcome to your Expo app 👋
+# 🚀 Expo News App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![Cover Image](https://github.com/MohammadRauf0/expo-news-app/blob/main/assets/images/image.png?raw=true)
 
-## Get started
+A modern, mobile-first news application built with Expo and React Native. The app provides real-time news updates, category filtering, and article bookmarking capabilities, all wrapped in a clean and intuitive user interface.
 
-1. Install dependencies
+---
+
+## 🌟 Features
+
+- **Breaking News Slider**: Dynamic slider showcasing top stories.
+- **Category Filtering**: Filter news by categories like Politics, Science, Entertainment, etc.
+- **Country Selection**: Fetch news based on different countries.
+- **Bookmarks**: Save articles for later reading with persistent storage.
+- **Search Functionality**: Search for specific news articles by keywords.
+- **Smooth Animations**: Powered by Reanimated for fluid transitions.
+- **Responsive UI**: Optimized for seamless mobile interaction.
+
+---
+
+## 🛠 Prerequisites
+
+- **Node.js**: Version >=16.x
+- **Expo CLI**: Installed globally (`npm install -g expo-cli`)
+- **Expo Go App**: For testing on iOS/Android devices
+
+---
+
+## 🛠 Tech Stack
+
+- **React Native**: Framework for cross-platform mobile apps.
+- **Expo SDK 51**: Core SDK for this application.
+- **TypeScript**: Strongly-typed JavaScript for maintainable code.
+- **AsyncStorage**: Persistent local storage for saved articles.
+- **Expo Router**: Intuitive navigation structure.
+- **Reanimated**: Smooth, performant animations.
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/expo-news-app.git
+   cd expo-news-app
+   ```
+
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory with your NewsData API key:
 
-   ```bash
-   npx expo start
+   ```plaintext
+   EXPO_PUBLIC_API_KEY=your_api_key_here
    ```
 
-In the output, you'll find options to open the app in a
+4. **Start the development server**:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   npm start
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. **Open in Expo Go**:
+   Scan the QR code with the Expo Go app to test on your mobile device.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 📂 Project Structure
 
-```bash
-npm run reset-project
+```plaintext
+app/
+├── (tabs)/              # Tab-based navigation screens
+├── news/                # News-related screens
+├── _layout.tsx          # Root layout for navigation
+└── index.tsx            # Entry point
+components/
+├── BreakingNews.tsx     # Dynamic news slider
+├── Categories.tsx       # Category selector
+└── ...
+constants/
+├── Categories.ts        # News categories
+├── Colors.ts            # App color palette
+└── ...
+hooks/                   # Custom React hooks
+types/                   # TypeScript type definitions
+assets/
+├── fonts/               # Custom fonts
+└── images/              # Static assets
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📑 Features in Detail
 
-To learn more about developing your project with Expo, look at the following resources:
+### 🏠 Home Screen
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Dynamic breaking news slider with pagination.
+- Category filtering for targeted browsing.
+- Top stories section.
 
-## Join the community
+### 🔍 Discover Screen
 
-Join our community of developers creating universal apps.
+- Search articles by keywords.
+- Filter by categories or countries.
+- Custom checkboxes for user selection.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 📖 Saved Screen
+
+- Manage saved articles persistently using AsyncStorage.
+- Access bookmarks even after restarting the app.
+
+### ⚙️ Settings Screen
+
+- Toggle themes and app preferences.
+- Manage user settings, including privacy options.
+
+---
+
+## 🔑 API Integration
+
+The app uses the **NewsData API** to fetch news articles. Here's how to integrate it:
+
+1. Sign up for a free API key at [NewsData.io](https://newsdata.io).
+2. Add the API key to the `.env` file:
+
+   ```plaintext
+   EXPO_PUBLIC_API_KEY=your_api_key_here
+   ```
+
+3. The app will handle all API requests and rate limiting automatically.
+
+---
+
+## 📦 Required Dependencies
+
+This project uses dependencies that are not included by default with Expo. Install them using:
+
+```bash
+npm install axios moment @react-native-async-storage/async-storage react-native-reanimated expo-linear-gradient
+```
+
+### Key Dependencies
+
+- **Axios**: HTTP client for API calls.
+- **Moment**: Simplifies date/time formatting.
+- **AsyncStorage**: Persistent storage for bookmarks.
+- **Reanimated**: Enables smooth and fluid animations.
+- **Expo Linear Gradient**: Beautiful gradient backgrounds.
+
+---
+
+## ⚠️ Important Notes
+
+- **SDK Compatibility**: This app only works on Expo SDK 51.
+- **API Key**: A valid NewsData API key is required for API functionality.
+- **Data Fetching Delay**: Fetching breaking news includes a 2-second delay for better UX.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add YourFeature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a pull request.
+
+---
+
+## 🙏 Acknowledgments
+
+- **NewsData.io**: For the powerful API service.
+- **Expo Team**: For an incredible mobile development framework.
+- **React Native Community**: For extensive libraries and support.
